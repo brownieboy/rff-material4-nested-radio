@@ -63,7 +63,6 @@ class App extends Component {
       <div style={{ margin: "40px" }}>
         <Form
           onSubmit={onSubmit}
-          initialValues={{ stooge: "larry" }}
           values={allData}
           render={({ handleSubmit, reset, submitting, pristine }) => (
             <form onSubmit={handleSubmit} noValidate>
@@ -72,6 +71,7 @@ class App extends Component {
                 <RadioGroup>
                   {allData.map(value => (
                     <FormControlLabel
+                      key={`troupe~${value.troupe.value}`}
                       label={value.troupe.label}
                       control={
                         <Field
