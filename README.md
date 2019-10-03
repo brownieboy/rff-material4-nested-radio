@@ -1,4 +1,7 @@
-https://codepen.io/mikedane94/pen/aXLpMv
+
+A test of recursive radio buttons using React Final Form 4 and Material-ui 4.
+
+Based on the official React Final Form documentation's example of using material: https://codesandbox.io/s/9ywq085k9w.   Also took some inspiration from this one: https://codepen.io/mikedane94/pen/aXLpMv.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
