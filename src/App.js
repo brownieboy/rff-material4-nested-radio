@@ -49,7 +49,7 @@ const allData = [
         members: [
           { value: "cigar", label: "Cigar" },
           { value: "moustache", label: "Moustache" },
-          { value: "stoopedwalk", lable: "Stooped walk" }
+          { value: "stoopedwalk", label: "Stooped walk" }
         ]
       },
       { value: "zeppo", label: "Zeppo" }
@@ -73,7 +73,7 @@ const RadioFormControlItem = ({ data, name }) => {
     <>
       <ul>
         <FormControlLabel
-          label={data.value}
+          label={data.label}
           control={
             <Field
               name={`field~${name}`}
