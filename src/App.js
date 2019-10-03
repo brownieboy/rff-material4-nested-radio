@@ -29,7 +29,8 @@ const RadioWrapper = ({
 
 const allData = [
   {
-    troupe: { value: "stooges", label: "The Three Stooges" },
+    value: "stooges",
+    label: "The Three Stooges",
     members: [
       { value: "larry", label: "Larry" },
       { value: "moe", label: "Moe" },
@@ -37,16 +38,25 @@ const allData = [
     ]
   },
   {
-    troupe: { value: "marx", label: "The Marx Brothers" },
+    value: "marx",
+    label: "The Marx Brothers",
     members: [
       { value: "chico", label: "Chico" },
       { value: "harpo", label: "Harpo" },
-      { value: "groucho", label: "Groucho" },
+      {
+        value: "groucho",
+        label: "Groucho",
+        members: [
+          { value: "cigar", label: "Cigar" },
+          { value: "moustache", label: "Moustache" }
+        ]
+      },
       { value: "zeppo", label: "Zeppo" }
     ]
   },
   {
-    troupe: { value: "nobody", label: "No existent" }, members: []
+    value: "nobody",
+    label: "No existent"
   }
 ];
 
@@ -57,19 +67,20 @@ const onSubmit = async values => {
 };
 
 const RadioFormControlItem = ({ data, value, name, label }) => {
-  const margin = data.members  ? 0 : 30;
+  // const margin = data.members ? 0 : 30;
+  const margin = 0;
 
   return (
     <>
       <div name="wrapperdiv" style={{ marginLeft: margin }}>
         <FormControlLabel
-          label={label}
+          label={data.value}
           control={
             <Field
-              name={name}
+              name={`field~${name}`}
               component={RadioWrapper}
               type="radio"
-              value={value}
+              value={data.value}
             />
           }
         />
@@ -80,8 +91,8 @@ const RadioFormControlItem = ({ data, value, name, label }) => {
                   key={`${value}~${memberVal.value}`}
                   data={memberVal}
                   name={`${value}~members`}
-                  value={memberVal.value}
-                  label={memberVal.label}
+                  // value={memberVal.value}
+                  // label={memberVal.label}
                 />
               );
             })
@@ -107,14 +118,15 @@ class App extends Component {
               <FormControl component="fieldset">
                 <FormLabel component="legend">Funny groups:</FormLabel>
                 <RadioGroup>
-                  {allData.map(value => {
+                  {allData.map(data => {
                     return (
                       <RadioFormControlItem
-                        key={`troupe~${value.troupe.value}`}
-                        data={value}
-                        name={`troupe`}
-                        value={value.troupe.value}
-                        label={value.troupe.label}
+                        key={data.value}
+                        data={data}
+                        name="toplevel"
+                        // name={`troupe`}
+                        // value={value.troupe.value}
+                        // label={value.troupe.label}
                       />
                     );
                   })}
