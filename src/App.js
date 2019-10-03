@@ -7,11 +7,11 @@ import {
   FormControlLabel,
   Radio
 } from "@material-ui/core";
-// import { Radio } from "final-form-material-ui";
 
 import "./App.css";
 
-// Thin wrapper from final-form-material-ui lib
+// Thin wrapper from final-form-material-ui lib, which is used in the example on
+// the React Final Form docs, but is not mentioned in the docs themselves!
 const RadioWrapper = ({
   input: { checked, value, name, onChange, ...restInput },
   meta,
