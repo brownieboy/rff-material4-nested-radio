@@ -48,7 +48,8 @@ const allData = [
         label: "Groucho",
         members: [
           { value: "cigar", label: "Cigar" },
-          { value: "moustache", label: "Moustache" }
+          { value: "moustache", label: "Moustache" },
+          { value: "stoopedwalk", lable: "Stooped walk" }
         ]
       },
       { value: "zeppo", label: "Zeppo" }
@@ -66,13 +67,11 @@ const onSubmit = async values => {
   window.alert(JSON.stringify(values, 0, 2));
 };
 
-const RadioFormControlItem = ({ data, value, name, label }) => {
-  // const margin = data.members ? 0 : 30;
-  const margin = 0;
+const RadioFormControlItem = ({ data, name }) => {
 
   return (
     <>
-      <div name="wrapperdiv" style={{ marginLeft: margin }}>
+      <ul>
         <FormControlLabel
           label={data.value}
           control={
@@ -88,16 +87,14 @@ const RadioFormControlItem = ({ data, value, name, label }) => {
           ? data.members.map(memberVal => {
               return (
                 <RadioFormControlItem
-                  key={`${value}~${memberVal.value}`}
+                  key={`${data.value}~${memberVal.value}`}
                   data={memberVal}
-                  name={`${value}~members`}
-                  // value={memberVal.value}
-                  // label={memberVal.label}
+                  name={`${data.value}~members`}
                 />
               );
             })
           : null}
-      </div>
+      </ul>
     </>
   );
 };
@@ -124,9 +121,6 @@ class App extends Component {
                         key={data.value}
                         data={data}
                         name="toplevel"
-                        // name={`troupe`}
-                        // value={value.troupe.value}
-                        // label={value.troupe.label}
                       />
                     );
                   })}
