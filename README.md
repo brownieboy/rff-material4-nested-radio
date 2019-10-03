@@ -1,7 +1,12 @@
+# Material 4, React Final Form 4 Radio Buttons Test
 
 A test of recursive radio buttons using React Final Form 4 and Material-ui 4.
 
 Based on the official React Final Form documentation's example of using material: https://codesandbox.io/s/9ywq085k9w.   Also took some inspiration from this one: https://codepen.io/mikedane94/pen/aXLpMv.
+
+It shows a multi-nested set of Radio buttons, passing in a Material `<Radio />` component as the component prop of a React Final Form `<Field />` component.  The `RadioFormControlItem` component calls itself recursively, depending on the content of each data point's `members` array.  There's three levels in this example, but in theory you can have as many as you like.  You'd probably need to do something more clever with the field `name` than what I've done here though.
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
